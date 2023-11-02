@@ -18,8 +18,32 @@
         </p>
         <button id="nextBtn">START</button>
     </div>
-    <div class="card" id="question-1"></div>
-    <div class="card" id="question-2"></div>
+    <div class="card" id="question-1">
+        <h2>
+            First thing's first. What's your name?
+        </h2>
+        <form id="form-1">
+            <label for="firstName">First name only: </label>
+            <input type="text" name="firstName" id="firstName">
+        </form>
+        <button class="nextBtn">Next Question</button>
+    </div>
+    <div class="card" id="question-2">
+        <h2>
+            Let's talk about your coding experience. How long have you been studying?
+        </h2>
+        <form id="form-2">
+            <input type="radio" name="experience" id="beginner">
+            <label for="experience">Less than 6 months</label>
+            <input type="radio" name="experience" id="intermediate">
+            <label for="experience">More than 6 months but less than a year</label>
+            <input type="radio" name="experience" id="advanced">
+            <label for="experience">I'm ready to get a job in the tech field.</label>
+            <input type="radio" name="experience" id="professional">
+            <label for="experience">I've been already working as a programmer.</label>
+            <button class="nextBtn">Next Question</button>
+        </form>
+    </div>
     <div class="card" id="question-3"></div>
     <div class="card" id="question-4"></div>
     <div class="card" id="question-5"></div>
