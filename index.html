@@ -27,8 +27,10 @@
                 First thing's first. What's your name?
             </h2>
             <form id="form-1">
-                <label for="firstName">First name only: </label>
-                <input type="text" name="firstName" id="firstName">
+                <div>
+                    <label for="firstName">First name only: </label>
+                    <input type="text" name="firstName" id="firstName">    
+                </div>
                 <button id="toCard2">Next Question</button>
             </form>    
         </div>
@@ -39,14 +41,22 @@
                 Let's talk about your experience. How long have you been learning / coding?
             </h2>
             <form id="form-2">
-                <input type="radio" name="experience" id="beginner">
-                <label for="experience">Less than 6 months</label>
-                <input type="radio" name="experience" id="intermediate">
-                <label for="experience">More than 6 months but less than a year</label>
-                <input type="radio" name="experience" id="advanced">
-                <label for="experience">I'm ready to get a job in the tech field.</label>
-                <input type="radio" name="experience" id="professional">
-                <label for="experience">I've been already working as a programmer.</label>
+                <div>
+                    <input type="radio" name="experience" id="beginner">
+                    <label for="experience">Less than 6 months</label>    
+                </div>
+                <div>
+                    <input type="radio" name="experience" id="intermediate">
+                    <label for="experience">More than 6 months but less than a year</label>    
+                </div>
+                <div>
+                    <input type="radio" name="experience" id="advanced">
+                    <label for="experience">I'm ready to get a job in the tech field.</label>    
+                </div>
+                <div>
+                    <input type="radio" name="experience" id="professional">
+                    <label for="experience">I've been already working as a programmer.</label>    
+                </div>
                 <button id="toCard3">Next Question</button>
             </form>    
         </div>
@@ -54,18 +64,27 @@
     <div class="card" id="question-3">
         <div class="content">
             <h2>
-                Great! Now which development excites you the most? 
+                Great! <br>
+                Now which development excites you the most? 
             </h2>
-            <p class="tip">Not sure about the question? See the different development <a href="https://www.indeed.com/career-advice/finding-a-job/back-end-vs-front-end-vs-full-stack-development#:~:text=The%20back%20end%20refers%20to,of%20components%2C%20front%20and%20back." target="_blank">here</a>.</p>
+            <p class="tip">Not sure about the question? See the differences <a href="https://www.indeed.com/career-advice/finding-a-job/back-end-vs-front-end-vs-full-stack-development" target="_blank">here</a>.</p>
             <form id="form-3">
-                <input type="radio" name="stack" id="front">
-                <label for="stack">Frontend Development</label>
-                <input type="radio" name="stack" id="back">
-                <label for="stack">Backend Development</label>
-                <input type="radio" name="stack" id="full">
-                <label for="stack">Fullstack</label>
-                <input type="radio" name="stack" id="unknown">
-                <label for="stack">Not sure. Still exploring.</label>
+                <div>
+                    <input type="radio" name="stack" id="front">
+                    <label for="stack">Frontend Development</label>    
+                </div>
+                <div>
+                    <input type="radio" name="stack" id="back">
+                    <label for="stack">Backend Development</label>    
+                </div>
+                <div>
+                    <input type="radio" name="stack" id="full">
+                    <label for="stack">Fullstack</label>    
+                </div>
+                <div>
+                    <input type="radio" name="stack" id="unknown">
+                    <label for="stack">Not sure. Still exploring.</label>    
+                </div>
                 <button id="toCard4">Next Question</button>
             </form>    
         </div>
@@ -76,16 +95,18 @@
                 Awesome! Let's have a closer look to which aspect of development you're interested in.
             </h2>
             <form id="form-4">
-                <input type="checkbox" name="interest" id="design">
-                <label for="interest" value="design">Design</label>
-                <input type="checkbox" name="interest" id="operation">
-                <label for="interest" value="operation">Operation</label>
-                <input type="checkbox" name="interest" id="data">
-                <label for="interest" value="data">Data Analysis</label>
-                <input type="checkbox" name="interest" id="ai">
-                <label for="interest" value="ai">AI</label>
-                <input type="checkbox" name="interest" id="qa">
-                <label for="interest" value="qa">QA</label>
+                <div>
+                    <input type="checkbox" name="interest" id="design">
+                    <label for="interest" value="design">Design</label>
+                    <input type="checkbox" name="interest" id="operation">
+                    <label for="interest" value="operation">Operation</label>
+                    <input type="checkbox" name="interest" id="data">
+                    <label for="interest" value="data">Data Analysis</label>
+                    <input type="checkbox" name="interest" id="ai">
+                    <label for="interest" value="ai">AI</label>
+                    <input type="checkbox" name="interest" id="qa">
+                    <label for="interest" value="qa">QA</label>    
+                </div>
                 <button id="toCard5">Final Question</button>
             </form>    
         </div>
@@ -94,17 +115,21 @@
         <div class="content">
             <h2>
                 You're almost there! <br>
-                Let's talk about your strengths. Which keyword below best describes you at a workplace? 
+                Let's talk about your strengths. <br>
+                Which keyword below best describes you? 
             </h2>
             <form id="form-5">
-                <input type="radio" name="strength" id="detail">
-                <label for="strength" value="detail">Detail-oriented</label>
-                <input type="radio" name="strength" id="multitask">
-                <label for="strength" value="multitask">Multitasking</label>
-                <input type="radio" name="strength" id="resourceful">
-                <label for="strength" value="resourceful">Resourceful</label>
-                <input type="radio" name="strength" id="interpersonnal">
-                <label for="strength" value="interpersonnal">Interpersonnal</label>
+                <div>
+                    <input type="radio" name="strength" id="detail">
+                    <label for="strength" value="detail">Detail-oriented</label>
+                    <input type="radio" name="strength" id="multitask">
+                    <label for="strength" value="multitask">Multitasking</label>
+                    <br>
+                    <input type="radio" name="strength" id="resourceful">
+                    <label for="strength" value="resourceful">Resourceful</label>
+                    <input type="radio" name="strength" id="interpersonnal">
+                    <label for="strength" value="interpersonnal">Interpersonnal</label>    
+                </div>
                 <button id="toResult">GET RESULT</button>
             </form>    
         </div>
@@ -113,9 +138,11 @@
         <div class="content">
             <h2>Woohoo! Your result's here.</h2>
             <p>
-                According to your answers, you might enjoy being a <span id="developer"></span>. To further strengthen your skills as a programmer, we suggest you to explore the following software languages: <br>
+                <span id="name"></span>, according to your answers you might enjoy being a <span id="developer"></span>. <br>
+                To further strengthen your skills as a programmer, we suggest you to explore the following software languages: <br>
                 <span id="languages"></span>
             </p>    
+            <button id="toIntro">AGAIN</button>
         </div>
     </div>
 </body>

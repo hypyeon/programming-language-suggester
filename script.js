@@ -48,7 +48,16 @@ function toNext() {
         result.style.display = 'block';
         card5.style.display = 'none';
     });
+
+    next = document.getElementById('toIntro');
+    next.addEventListener('click', function(e) {
+        e.preventDefault();
+        intro.style.display = 'block';
+        result.style.display = 'none';
+    });
 };
+
+
 
 window.onload = function() {
     toNext();
