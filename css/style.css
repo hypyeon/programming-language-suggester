@@ -43,4 +43,8 @@ body {
 }
 .card p {
   font-size: 1rem;
+}
+
+#opening {
+  display: block;
 }/*# sourceMappingURL=style.css.map */

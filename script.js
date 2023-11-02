@@ -1,17 +1,26 @@
 function toNext() {
-    let currentCardIndex = 0;
     const cards = document.getElementsByClassName('card');
-    let next = document.getElementsByClassName('nextBtn');
+    const intro = document.getElementById('opening');
+    const card1 = document.getElementById('question-1');
+    const card2 = document.getElementById('question-2');
+    const card3 = document.getElementById('question-3');
+    const card4 = document.getElementById('question-4');
+    const card5 = document.getElementById('question-5');
+    const result = document.getElementById('closing');
 
+    let next = document.getElementById('toCard1');
     next.addEventListener('click', function() {
-        cards[currentCardIndex].style.display = 'none';
-        currentCardIndex++;
-        if (currentCardIndex >= cards.length) {
-            currentCardIndex = 0;
-        }
-        cards[currentCardIndex].style.display = 'block';
+        card1.style.display = 'block';
+        intro.style.display = 'none';
     });
-    cards[0].style.display = 'block';
+
+    next = document.getElementById('toCard2');
+    next.addEventListener('click', function() {
+        card2.style.display = 'block';
+        card1.style.display = 'none';
+    });
+
+    next = document
 };
 
 window.onload = function() {
