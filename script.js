@@ -20,7 +20,11 @@ function toNext() {
         card1.style.display = 'none';
     });
 
-    next = document
+    next = document.getElementById('toCard3');
+    next.addEventListener('click', function() {
+        card3.style.display = 'block';
+        card2.style.display = 'none';
+    });
 };
 
 window.onload = function() {
