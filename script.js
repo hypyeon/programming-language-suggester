@@ -1,13 +1,11 @@
-function suggestion() {
+function suggestionMaker() {
     const name = document.getElementById("firstName").value;
+    if (name.trim() === "") {
+        alert("Please write your name.");
+        return;
+    }
 
-    const formName = document.getElementById("form-1");
-    formName.addEventListener("submit", function(e) {
-        e.preventDefault();
-        nameResult.innerText = name;
-    });
-
-    const stack = document.querySelector('input[name="stack"]:checked').value; 
+    const stack = document.querySelector('input[type="radio"]:checked').value; 
     const selectedStrength = document.querySelector('input[name="strength"]:checked').value;
 
     const frontDev = 'Frontend Developer';
@@ -71,8 +69,7 @@ function toNext() {
     const result = document.getElementById('closing');
 
     let next = document.getElementById('toCard1');
-    next.addEventListener('click', function(e) {
-        e.preventDefault();
+    next.addEventListener('click', function() {
         card1.style.display = 'block';
         intro.style.display = 'none';
     });
@@ -123,5 +120,5 @@ function toNext() {
 window.onload = function(e) {
     e.preventDefault();
     toNext();
-    suggestion();
+    suggestionMaker();
 }
