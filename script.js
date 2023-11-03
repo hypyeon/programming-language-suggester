@@ -62,14 +62,16 @@ function suggestion() {
     let nameResult = document.getElementById('name');
 
     const formName = document.getElementById('form-1');
-    formName.addEventListener('submit', function() {
+    formName.addEventListener('submit', function(e) {
+        e.preventDefault();
         nameResult.innerText = name;
     });
 
     let developerResult = document.getElementById('developer');
 
     const formStack = document.getElementById('form-3');
-    formStack.addEventListener('submit', function() {
+    formStack.addEventListener('submit', function(e) {
+        e.preventDefault();
         let selectedStack = document.querySelector('input[name="stack"]:checked').value;
         if (selectedStack === 'front') {
             developerResult.innerText = 'Frontend Developer';
@@ -98,16 +100,12 @@ function suggestion() {
 
     let languageResult = document.getElementById('languages');
 
-    const frontEnd = 'HTML, CSS, and JavaScript';
-    const backEnd = 'Node.js, Ruby, Java';
-    const fullStack = 'Python, C#, SQL';
-
     if (developerResult === 'Frontend Developer') {
-        languageResult.innerText = frontEnd;
+        languageResult.innerText = 'HTML, CSS, and JavaScript';
     } else if (developerResult === 'Backend Developer') {
-        languageResult.innerText = backEnd;
+        languageResult.innerText = 'Node.js, Ruby, Java';
     } else if (developerResult === 'Fullstack Developer') {
-        languageResult.innerText = fullStack;
+        languageResult.innerText = 'Python, C#, SQL';
         return;
     };
 };
