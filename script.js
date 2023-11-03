@@ -58,10 +58,6 @@ function toNext() {
 };
 
 function suggestion() {
-    const frontEnd = 'HTML, CSS, and JavaScript';
-    const backEnd = 'Node.js, Ruby, Java';
-    const fullStack = 'Python, C#, SQL';
-
     const name = document.querySelector('input[name="firstName"]').value;
     let nameResult = document.getElementById('name');
 
@@ -81,16 +77,42 @@ function suggestion() {
             developerResult.innerText = 'Backend Developer';
         } else if (selectedStack === 'full') {
             developerResult.innerText = 'Fullstack Developer';
-        } else if (!selectedStack) {
-            alert("Please choose an option.");
+        } else if (selectedStack === 'unknown') {
+            const formStrengths = document.getElementById('form-5');
+            formStrengths.addEventListener('submit', function() {
+                let selectedStrength = document.querySelector('input[name="strength"]:checked').value;
+                if (selectedStrength === 'creative') {
+                    developerResult.innerText = 'Frontend Developer';
+                } else if (selectedStrength === 'organized') {
+                    developerResult.innerText = 'Backend Developer';
+                } else if (selectedStrength === 'multi') {
+                    developerResult.innerText = 'Fullstack Developer';
+                    return;
+                };
+            })
         } else {
+            alert("Please choose an option.");
             return;
         };
     });
 
+    let languageResult = document.getElementById('languages');
 
-}
+    const frontEnd = 'HTML, CSS, and JavaScript';
+    const backEnd = 'Node.js, Ruby, Java';
+    const fullStack = 'Python, C#, SQL';
+
+    if (developerResult === 'Frontend Developer') {
+        languageResult.innerText = frontEnd;
+    } else if (developerResult === 'Backend Developer') {
+        languageResult.innerText = backEnd;
+    } else if (developerResult === 'Fullstack Developer') {
+        languageResult.innerText = fullStack;
+        return;
+    };
+};
 
 window.onload = function() {
     toNext();
+    suggestion();
 }
