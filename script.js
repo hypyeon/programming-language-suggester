@@ -1,3 +1,66 @@
+function suggestion() {
+    const name = document.getElementById("firstName").value;
+
+    const formName = document.getElementById("form-1");
+    formName.addEventListener("submit", function(e) {
+        e.preventDefault();
+        nameResult.innerText = name;
+    });
+
+    const stack = document.querySelector('input[name="stack"]:checked').value; 
+    const selectedStrength = document.querySelector('input[name="strength"]:checked').value;
+
+    const frontDev = 'Frontend Developer';
+    const backDev = 'Backend Developer';
+    const fullStack = 'Fullstack Developer';
+
+    const langFront = 'HTML, CSS, and JavaScript';
+    const langBack = 'Node.js, Ruby, Java';
+    const langFull = 'Python, C#, SQL';
+
+    const formStack = document.getElementById("form-3");
+    formStack.addEventListener("submit", function(e) {
+        e.preventDefault();
+        let developer;
+        let language;
+        if (stack === 'front') {
+            developer = frontDev;
+            language = langFront;
+        } else if (stack === 'back') {
+            developer = backDev;
+            language = langBack;
+        } else if (stack === 'full') {
+            developer = fullStack;
+            language = langFull;
+        } else if (stack === 'unknown') {
+            const formStrengths = document.getElementById('form-5');
+            formStrengths.addEventListener("submit", function() {
+                if (selectedStrength === 'creative') {
+                    developer = frontDev;
+                    language = langFront;
+                } else if (selectedStrength === 'organized') {
+                    developer = backDev;
+                    language = langBack;
+                } else if (selectedStrength === 'multi') {
+                    developer = fullStack;
+                    language = langFull;
+                };
+            })
+        } else {
+            alert("Please choose an option.");
+        };
+
+        const jobTitle = developer;
+        const lang = language;
+
+        const result = `${name[0].toUpperCase()}${name.slice(1).toLowerCase()}, according to your answers you might enjoy being a ${jobTitle}. 
+        To further strengthen your skills as a programmer, we suggest you to explore the following software languages: 
+        ${lang}`;
+
+        document.getElementById('result').innerText = result;
+    });
+};
+
 function toNext() {
     const intro = document.getElementById('opening');
     const card1 = document.getElementById('question-1');
@@ -8,7 +71,8 @@ function toNext() {
     const result = document.getElementById('closing');
 
     let next = document.getElementById('toCard1');
-    next.addEventListener('click', function() {
+    next.addEventListener('click', function(e) {
+        e.preventDefault();
         card1.style.display = 'block';
         intro.style.display = 'none';
     });
@@ -56,55 +120,8 @@ function toNext() {
     });
 };
 
-function suggestion() {
-    let name = document.getElementById('firstName').value;
-    name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase;
-    let nameResult = document.getElementById('name');
-
-    const formName = document.getElementById('form-1');
-    formName.addEventListener('submit', function(e) {
-        e.preventDefault();
-        nameResult.innerText = name;
-    });
-
-    let developerResult = document.getElementById('developer');
-    let languageResult = document.getElementById('languages');
-
-    const formStack = document.getElementById('form-3');
-    formStack.addEventListener('submit', function(e) {
-        e.preventDefault();
-        let selectedStack = document.querySelector('input[name="stack"]:checked').value;
-        if (selectedStack === 'front') {
-            developerResult.innerText = 'Frontend Developer';
-            languageResult.innerText = 'HTML, CSS, and JavaScript';
-        } else if (selectedStack === 'back') {
-            developerResult.innerText = 'Backend Developer';
-            languageResult.innerText = 'Node.js, Ruby, Java';
-        } else if (selectedStack === 'full') {
-            developerResult.innerText = 'Fullstack Developer';
-            languageResult.innerText = 'Python, C#, SQL';
-        } else if (selectedStack === 'unknown') {
-            const formStrengths = document.getElementById('form-5');
-            formStrengths.addEventListener('submit', function() {
-                let selectedStrength = document.querySelector('input[name="strength"]:checked').value;
-                if (selectedStrength === 'creative') {
-                    developerResult.innerText = 'Frontend Developer';
-                    languageResult.innerText = 'HTML, CSS, and JavaScript';
-                } else if (selectedStrength === 'organized') {
-                    developerResult.innerText = 'Backend Developer';
-                    languageResult.innerText = 'Node.js, Ruby, Java';
-                } else if (selectedStrength === 'multi') {
-                    developerResult.innerText = 'Fullstack Developer';
-                    languageResult.innerText = 'Python, C#, SQL';
-                };
-            })
-        } else {
-            alert("Please choose an option.");
-        };
-    });
-};
-
-window.onload = function() {
+window.onload = function(e) {
+    e.preventDefault();
     toNext();
     suggestion();
 }
