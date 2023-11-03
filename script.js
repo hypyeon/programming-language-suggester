@@ -57,7 +57,39 @@ function toNext() {
     });
 };
 
+function suggestion() {
+    const frontEnd = 'HTML, CSS, and JavaScript';
+    const backEnd = 'Node.js, Ruby, Java';
+    const fullStack = 'Python, C#, SQL';
 
+    const name = document.querySelector('input[name="firstName"]').value;
+    let nameResult = document.getElementById('name');
+
+    const formName = document.getElementById('form-1');
+    formName.addEventListener('submit', function() {
+        nameResult.innerText = name;
+    });
+
+    let developerResult = document.getElementById('developer');
+
+    const formStack = document.getElementById('form-3');
+    formStack.addEventListener('submit', function() {
+        let selectedStack = document.querySelector('input[name="stack"]:checked').value;
+        if (selectedStack === 'front') {
+            developerResult.innerText = 'Frontend Developer';
+        } else if (selectedStack === 'back') {
+            developerResult.innerText = 'Backend Developer';
+        } else if (selectedStack === 'full') {
+            developerResult.innerText = 'Fullstack Developer';
+        } else if (!selectedStack) {
+            alert("Please choose an option.");
+        } else {
+            return;
+        };
+    });
+
+
+}
 
 window.onload = function() {
     toNext();
