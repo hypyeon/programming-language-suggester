@@ -1,5 +1,4 @@
 function toNext() {
-    const cards = document.getElementsByClassName('card');
     const intro = document.getElementById('opening');
     const card1 = document.getElementById('question-1');
     const card2 = document.getElementById('question-2');
@@ -58,7 +57,8 @@ function toNext() {
 };
 
 function suggestion() {
-    const name = document.querySelector('input[name="firstName"]').value;
+    let name = document.getElementById('firstName').value;
+    name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase;
     let nameResult = document.getElementById('name');
 
     const formName = document.getElementById('form-1');
@@ -68,6 +68,7 @@ function suggestion() {
     });
 
     let developerResult = document.getElementById('developer');
+    let languageResult = document.getElementById('languages');
 
     const formStack = document.getElementById('form-3');
     formStack.addEventListener('submit', function(e) {
@@ -75,39 +76,32 @@ function suggestion() {
         let selectedStack = document.querySelector('input[name="stack"]:checked').value;
         if (selectedStack === 'front') {
             developerResult.innerText = 'Frontend Developer';
+            languageResult.innerText = 'HTML, CSS, and JavaScript';
         } else if (selectedStack === 'back') {
             developerResult.innerText = 'Backend Developer';
+            languageResult.innerText = 'Node.js, Ruby, Java';
         } else if (selectedStack === 'full') {
             developerResult.innerText = 'Fullstack Developer';
+            languageResult.innerText = 'Python, C#, SQL';
         } else if (selectedStack === 'unknown') {
             const formStrengths = document.getElementById('form-5');
             formStrengths.addEventListener('submit', function() {
                 let selectedStrength = document.querySelector('input[name="strength"]:checked').value;
                 if (selectedStrength === 'creative') {
                     developerResult.innerText = 'Frontend Developer';
+                    languageResult.innerText = 'HTML, CSS, and JavaScript';
                 } else if (selectedStrength === 'organized') {
                     developerResult.innerText = 'Backend Developer';
+                    languageResult.innerText = 'Node.js, Ruby, Java';
                 } else if (selectedStrength === 'multi') {
                     developerResult.innerText = 'Fullstack Developer';
-                    return;
+                    languageResult.innerText = 'Python, C#, SQL';
                 };
             })
         } else {
             alert("Please choose an option.");
-            return;
         };
     });
-
-    let languageResult = document.getElementById('languages');
-
-    if (developerResult === 'Frontend Developer') {
-        languageResult.innerText = 'HTML, CSS, and JavaScript';
-    } else if (developerResult === 'Backend Developer') {
-        languageResult.innerText = 'Node.js, Ruby, Java';
-    } else if (developerResult === 'Fullstack Developer') {
-        languageResult.innerText = 'Python, C#, SQL';
-        return;
-    };
 };
 
 window.onload = function() {
