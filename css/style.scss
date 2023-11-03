@@ -9,7 +9,7 @@ body {
     font-size: 16px;
     background-color: rgba(248, 248, 255, 0.5);
     width: 100vw;
-    height: 100vh;
+    height: 700vh;
     font-family: 'Space Mono', monospace;
 }
 .flex {
@@ -21,11 +21,13 @@ body {
 .j-c-c {
     justify-content: center;
 }
+.j-c-sa {
+    justify-content: space-around;
+}
 .a-i-c {
     align-items: center;
 }
 .card {
-    display: none;
     background-color: rgb(0, 2, 38);
     width: 60vw;
     height: 60vh;
@@ -65,8 +67,6 @@ body {
         }
     }
     button {
-        position: absolute;
-        bottom: 24vh;
         background-color: rgb(255, 184, 90);
         color: rgb(255, 255, 255);
         border: 0;
@@ -85,9 +85,10 @@ body {
 .content {
     display: flex;
     flex-direction: column;
-    height: 54vh;
+    height: 40vh;
     gap: 2rem;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 2rem 6rem;
+    padding: 0 6rem;
+    margin: 10vh 0;
 }
