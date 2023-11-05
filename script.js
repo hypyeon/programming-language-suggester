@@ -42,49 +42,53 @@ function scrollToNext() {
         toNextCard(0);
     });
 }
-function renderOnSubmit(e) {
-    e.preventDefault();
-    document.querySelector('form').addEventListener('submit', () => {
-        const name = document.querySelector('input#firstName').value;
-        const dev = document.querySelector('input[name="stack"]:checked').value; 
-        const strength = document.querySelector('input[name="strength"]:checked').value; 
-        let role; 
-        if (dev === 'front') {
+function generateSuggestion() {
+    const name = document.querySelector('input#firstName').value;
+    const dev = document.querySelector('input[name="stack"]:checked').value; 
+    const strength = document.querySelector('input[name="strength"]:checked').value; 
+    let role; 
+    let languages;
+    if (dev === 'front') {
+        role = 'Frontend Developer';
+        languages = 'HTML, CSS, and JavaScript';
+    } else if (dev === 'back') {
+        role = 'Backend Developer';
+        languages = 'Python, Java, and Node.js';
+    } else if (dev === 'full') {
+        role = 'Fullstack Developer'; 
+        languages = 'Ruby, PHP, and C#';
+    } else if (dev === 'unknown') {
+        if (strength === 'creative') {
             role = 'Frontend Developer';
-        } else if (dev === 'back') {
-            role = 'Backend Developer';
-        } else if (dev === 'full') {
+            languages = 'HTML, CSS, and JavaScript';
+        } else if (strength === 'organized') {
+            role = 'Backend Developer'; 
+            languages = 'Python, Java, and Node.js';
+        } else if (strength === 'multi') {
             role = 'Fullstack Developer'; 
-        } else if (dev === 'unknown') {
-            if (strength === 'creative') {
-                role = 'Frontend Developer';
-            } else if (strength === 'organized') {
-                role = 'Backend Developer'; 
-            } else if (strength === 'multi') {
-                role = 'Fullstack Developer'; 
-            } else {
-                return;
-            }
+            languages = 'Ruby, PHP, and C#';
         } else {
             return;
         }
-        let languages; 
-        if (role = 'Frontend Developer') {
-            languages = 'HTML, CSS, JavaScript';
-        } else if (role = 'Backend Developer') {
-            languages = 'Python, Java, Node.js';
-        } else if (role = 'Fullstack Developer') {
-            languages = 'Ruby, PHP, C#';
-        } else {
-            return;
-        }
-        const result = `Thanks ${name} for completing this questionnaire! Based on your answers, ${role} seems to be a great fit for you. And to be a successful ${role}, consider learning ${languages}.`;
-        document.getElementById('result').innerText = result;
+    } else {
+        return;
+    }
+    const result = `Thanks ${name} for completing this questionnaire! Based on your answers, ${role} seems to be a great fit for you. And to be a successful ${role}, consider learning ${languages}.`;
+    document.getElementById('result').innerText = result;
+};
+
+function formEventHandler() {
+    document.querySelector('#toResult').addEventListener('click', (e) => {
+        e.preventDefault();
+        generateSuggestion();
+    });
+    document.querySelector('#toIntro').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('form').reset();
     })
 };
 
-window.onload = function(e) {
-    e.preventDefault();
+window.addEventListener("load", () => {
+    formEventHandler();
     scrollToNext();
-    renderOnSubmit();
-}
+});
