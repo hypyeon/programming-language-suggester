@@ -89,11 +89,16 @@ function generateSuggestion() {
     document.getElementById('result2').innerText = result2;
     document.getElementById('result3').innerText = result3;
 };
+function removeResult() {
+    document.getElementById('result1').innerText = '';
+    document.getElementById('result2').innerText = '';
+    document.getElementById('result3').innerText = '';
+}
 function formEventHandler() {
     document.querySelector('#toCard2').addEventListener('click', (e) => {
         e.preventDefault();
         getName();
-    })
+    });
     document.querySelector('#toResult').addEventListener('click', (e) => {
         e.preventDefault();
         generateSuggestion();
@@ -101,7 +106,8 @@ function formEventHandler() {
     document.querySelector('#toIntro').addEventListener('click', (e) => {
         e.preventDefault();
         document.querySelector('form').reset();
-    })
+        removeResult();
+    });
 };
 
 window.addEventListener("load", () => {
