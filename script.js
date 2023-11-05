@@ -14,7 +14,8 @@ function scrollToNext() {
     const toResult = document.getElementById("toResult");
     const toIntro = document.getElementById("toIntro");
 
-    toCard1.addEventListener("click", () => {
+    toCard1.addEventListener("click", (e) => {
+        e.preventDefault();
         toNextCard(1);
     });
     toCard2.addEventListener("click", (e) => {
@@ -37,26 +38,53 @@ function scrollToNext() {
         e.preventDefault();
         toNextCard(6);
     });
-    toIntro.addEventListener("click", (e) => {
-        e.preventDefault();
+    toIntro.addEventListener("click", () => {
         toNextCard(0);
     });
 }
-
-const result = document.getElementById('result');
-let jobTitle;
-
-function renderOnSubmit() {
-    const formThree = document.getElementById('form-3');
-    formThree.addEventListener('submit', () => {
-        jobTitle = document.querySelector('input[type="radio"]:checked').value;;
-    });
-    return jobTitle;
+function renderOnSubmit(e) {
+    e.preventDefault();
+    document.querySelector('form').addEventListener('submit', () => {
+        const name = document.querySelector('input#firstName').value;
+        const dev = document.querySelector('input[name="stack"]:checked').value; 
+        const strength = document.querySelector('input[name="strength"]:checked').value; 
+        let role; 
+        if (dev === 'front') {
+            role = 'Frontend Developer';
+        } else if (dev === 'back') {
+            role = 'Backend Developer';
+        } else if (dev === 'full') {
+            role = 'Fullstack Developer'; 
+        } else if (dev === 'unknown') {
+            if (strength === 'creative') {
+                role = 'Frontend Developer';
+            } else if (strength === 'organized') {
+                role = 'Backend Developer'; 
+            } else if (strength === 'multi') {
+                role = 'Fullstack Developer'; 
+            } else {
+                return;
+            }
+        } else {
+            return;
+        }
+        let languages; 
+        if (role = 'Frontend Developer') {
+            languages = 'HTML, CSS, JavaScript';
+        } else if (role = 'Backend Developer') {
+            languages = 'Python, Java, Node.js';
+        } else if (role = 'Fullstack Developer') {
+            languages = 'Ruby, PHP, C#';
+        } else {
+            return;
+        }
+        const result = `Thanks ${name} for completing this questionnaire! Based on your answers, ${role} seems to be a great fit for you. And to be a successful ${role}, consider learning ${languages}.`;
+        document.getElementById('result').innerText = result;
+    })
 };
 
 window.onload = function(e) {
     e.preventDefault();
     scrollToNext();
     renderOnSubmit();
-    result.innerHTML = jobTitle;
 }

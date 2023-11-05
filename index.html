@@ -7,41 +7,39 @@
     <script src="script.js"></script>
     <title>Programming Language Suggester</title>
 </head>
-<body class="flex col j-c-sa a-i-c">
-    <div class="card flex col j-c-c" id="opening">
-        <div class="content">
-            <h1>
-                Dear future programmer, <br>
-                welcome aboard. 
-            </h1>
-            <p>
-                Your journey starts by getting to know which programming languages you'd like to learn. Let's find them out! <br>
-                There are 5 questions prepared for you in the next pages. 
-            </p>
-            <button id="toCard1">START</button>    
-        </div>
-    </div>
-    <div class="card" id="question-1">
-        <div class="content">
-            <h2>
-                First thing's first. What's your name?
-            </h2>
-            <form id="form-1">
+<body>
+    <form class="flex col j-c-sa a-i-c">
+        <div class="card flex col j-c-c" id="opening">
+            <div class="content">
+                <h1>
+                    Dear future programmer, <br>
+                    welcome aboard. 
+                </h1>
+                <p>
+                    Your journey starts by getting to know which programming languages you'd like to learn. Let's find them out! <br>
+                    There are 5 questions prepared for you in the next pages. 
+                </p>
+                <button id="toCard1">START</button>    
+            </div>
+        </div>   
+        <div class="card" id="question-1">
+            <div class="content">
+                <h2>
+                    First thing's first. What's your name?
+                </h2>
                 <div>
                     <label for="firstName">First name only: </label>
                     <input type="text" name="firstName" id="firstName">    
                 </div>
-                <button type="submit" id="toCard2">Next Question</button>
-            </form>    
+                <button id="toCard2">Next Question</button>
+            </div>
         </div>
-    </div>
-    <div class="card" id="question-2">
-        <div class="content">
-            <h2>
-                Nice to meet you, <span id="name">friend</span>! <br>
-                Let's talk about your experience. How long have you been learning / coding?
-            </h2>
-            <form id="form-2">
+        <div class="card" id="question-2">
+            <div class="content">
+                <h2>
+                    Nice to meet you, <span id="name">friend</span>! <br>
+                    Let's talk about your experience. How long have you been learning / coding?
+                </h2>
                 <div>
                     <input type="radio" name="experience" id="beginner">
                     <label for="beginner">Less than 6 months</label>    
@@ -58,18 +56,16 @@
                     <input type="radio" name="experience" id="professional">
                     <label for="professional">I've been already working as a programmer.</label>    
                 </div>
-                <button type="submit" id="toCard3">Next Question</button>
-            </form>    
-        </div>
-    </div>
-    <div class="card" id="question-3">
-        <div class="content">
-            <h2>
-                Great! <br>
-                Now which development excites you the most? 
-            </h2>
-            <p class="tip">Not sure about the question? See the differences <a href="https://www.indeed.com/career-advice/finding-a-job/back-end-vs-front-end-vs-full-stack-development" target="_blank">here</a>.</p>
-            <form id="form-3">
+                <button id="toCard3">Next Question</button>
+            </div>
+        </div>  
+        <div class="card" id="question-3">
+            <div class="content">
+                <h2>
+                    Great! <br>
+                    Now which development excites you the most? 
+                </h2>
+                <p class="tip">Not sure about the question? See the differences <a href="https://www.indeed.com/career-advice/finding-a-job/back-end-vs-front-end-vs-full-stack-development" target="_blank">here</a>.</p>
                 <div>
                     <input type="radio" name="stack" id="front" value="front">
                     <label for="front">Frontend Development</label>    
@@ -86,16 +82,14 @@
                     <input type="radio" name="stack" id="unknown" value="unknown">
                     <label for="unknown">Not sure. Still exploring.</label>    
                 </div>
-                <button type="submit" id="toCard4">Next Question</button>
-            </form>    
-        </div>
-    </div>
-    <div class="card" id="question-4">
-        <div class="content">
-            <h2>
-                Awesome! Let's have a closer look to which aspect of development you're interested in.
-            </h2>
-            <form id="form-4">
+                <button id="toCard4">Next Question</button>
+            </div>
+        </div>  
+        <div class="card" id="question-4">
+            <div class="content">
+                <h2>
+                    Awesome! Let's have a closer look to which aspect of development you're interested in.
+                </h2>
                 <div>
                     <input type="checkbox" name="interest" id="design" value="design">
                     <label for="design">Design</label>
@@ -108,18 +102,16 @@
                     <input type="checkbox" name="interest" id="qa" value="qa">
                     <label for="qa">QA</label>    
                 </div>
-                <button type="submit" id="toCard5">Final Question</button>
-            </form>    
+                <button id="toCard5">Final Question</button>
+            </div>
         </div>
-    </div>
-    <div class="card" id="question-5">
-        <div class="content">
-            <h2>
-                You're almost there! <br>
-                Let's talk about your strengths. <br>
-                Which keyword below best describes you? 
-            </h2>
-            <form id="form-5">
+        <div class="card" id="question-5">
+            <div class="content">
+                <h2>
+                    You're almost there! <br>
+                    Let's talk about your strengths. <br>
+                    Which keyword below best describes you? 
+                </h2>
                 <div>
                     <input type="radio" name="strength" id="creative" value="creative">
                     <label for="creative">Creative</label>
@@ -129,13 +121,13 @@
                     <label for="multi">Multitasking</label> 
                 </div>
                 <button type="submit" id="toResult">GET RESULT</button>
-            </form>    
+            </div>
         </div>
-    </div>
+    </form>
     <div class="card" id="closing">
         <div class="content">
             <h2>Woohoo! Your result's here.</h2>
-            <p id="result">Drum roll...</p>    
+            <p id="result"></p>    
             <button type="reset" id="toIntro">AGAIN</button>
         </div>
     </div>

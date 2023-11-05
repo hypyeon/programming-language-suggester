@@ -8,8 +8,6 @@
 body {
   font-size: 16px;
   background-color: rgba(248, 248, 255, 0.5);
-  width: 100vw;
-  height: 700vh;
   font-family: "Space Mono", monospace;
 }
 
@@ -37,6 +35,7 @@ body {
   background-color: rgb(0, 2, 38);
   width: 60vw;
   height: 60vh;
+  margin: 20vh 0;
   border-radius: 25px;
   color: rgb(255, 255, 255);
   box-shadow: 4px 4px 6px rgba(1, 0, 50, 0.25);
@@ -58,18 +57,9 @@ body {
 .card .tip a:visited {
   color: beige;
 }
-.card form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
 .card form input[type=text] {
   height: 1.5rem;
   padding: 0 0.25rem;
-}
-.card #form-4 label, .card #form-5 label {
-  padding-right: 1rem;
 }
 .card button {
   background-color: rgb(255, 184, 90);
@@ -84,10 +74,6 @@ body {
   cursor: pointer;
 }
 
-#opening {
-  display: block;
-}
-
 .content {
   display: flex;
   flex-direction: column;
@@ -97,4 +83,11 @@ body {
   align-items: center;
   padding: 0 6rem;
   margin: 10vh 0;
+}
+
+#closing {
+  margin: 20vh 20vw;
+}
+#closing .content {
+  padding-top: 10vh;
 }/*# sourceMappingURL=style.css.map */
