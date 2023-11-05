@@ -45,7 +45,7 @@ function scrollToNext() {
 function getName() {
     const name = document.querySelector('input#firstName').value;
     if (name.trim() === "") {
-        alert("Tell me your name! :)");
+        alert("Aw, sorry we didn't get your name.");
     } else {
         document.querySelector('span#name').innerText = `, ${name}`;
         return;
