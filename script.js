@@ -43,7 +43,20 @@ function scrollToNext() {
     });
 }
 
+const result = document.getElementById('result');
+let jobTitle;
+
+function renderOnSubmit() {
+    const formThree = document.getElementById('form-3');
+    formThree.addEventListener('submit', () => {
+        jobTitle = document.querySelector('input[type="radio"]:checked').value;;
+    });
+    return jobTitle;
+};
+
 window.onload = function(e) {
     e.preventDefault();
     scrollToNext();
+    renderOnSubmit();
+    result.innerHTML = jobTitle;
 }
