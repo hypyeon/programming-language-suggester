@@ -42,6 +42,15 @@ function scrollToNext() {
         toNextCard(0);
     });
 }
+function getName() {
+    const name = document.querySelector('input#firstName').value;
+    if (name.trim() === "") {
+        alert("Tell me your name! :)");
+    } else {
+        document.querySelector('span#name').innerText = `, ${name}`;
+        return;
+    }
+}
 function generateSuggestion() {
     const name = document.querySelector('input#firstName').value;
     const dev = document.querySelector('input[name="stack"]:checked').value; 
@@ -73,11 +82,18 @@ function generateSuggestion() {
     } else {
         return;
     }
-    const result = `Thanks ${name} for completing this questionnaire! Based on your answers, ${role} seems to be a great fit for you. And to be a successful ${role}, consider learning ${languages}.`;
-    document.getElementById('result').innerText = result;
+    const result1 = `Thanks ${name} for completing this questionnaire!`;
+    const result2 = `Based on your answers, ${role} seems to be a great fit for you.`;
+    const result3 = `And to be a successful ${role}, consider learning ${languages}.`;
+    document.getElementById('result1').innerText = result1;
+    document.getElementById('result2').innerText = result2;
+    document.getElementById('result3').innerText = result3;
 };
-
 function formEventHandler() {
+    document.querySelector('#toCard2').addEventListener('click', (e) => {
+        e.preventDefault();
+        getName();
+    })
     document.querySelector('#toResult').addEventListener('click', (e) => {
         e.preventDefault();
         generateSuggestion();
