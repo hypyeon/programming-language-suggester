@@ -7,8 +7,14 @@
 }
 body {
     font-size: 16px;
-    background-color: rgba(248, 248, 255, 0.5);
     font-family: 'Space Mono', monospace;
+    #background {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;    
+        z-index: -1;
+        background: linear-gradient(60deg, rgb(5, 0, 40), rgba(192, 192, 192, 0.75) 30%, black, rgba(192, 192, 192, 0.75) 70%, black);
+    }
 }
 .flex {
     display: flex;
